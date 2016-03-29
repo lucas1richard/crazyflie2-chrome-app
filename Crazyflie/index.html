@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crazyflie client</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Crazyflie Client</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="tog active" data-target="#home"><a href="#home">Home</a></li>
+        <li class="tog" data-target="#instructions"><a href="#instructions">Instructions</a></li>
+        <li class="tog" data-target="#tips"><a href="#tips">Tips</a></li> 
+        <li class="tog" data-target="#data"><a href="#data">Data</a></li> 
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <section id="home">
+      <h2>Crazyflie Client</h2>
+      <div id="lastuse"></div>
+      <hr/>
+      <div class="row">
+        <div class="col-xs-6 form form-inline">
+          <label for="channel">Channel:</label>
+          <select id="channel" class="form-control"></select>
+        </div>
+        <div class="col-xs-6 form form-inline">
+          <label for="datarate">Data Rate:</label> 
+          <select id="datarate" class="form-control" value="2Mbps">
+            <option value="2Mbps">2 Mbps</option>
+            <option value="1Mbps">1 Mbps</option>
+            <option value="250Kbps">250 Kbps</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-top:20px; margin-bottom:20px;">
+        <button id="connectButton">Connect Crazyflie</button>
+        <span id="connectButtonNote"></span>
+      </div>
+      <div>
+      </div>
+      
+      <div>
+        <span id="packetLed"></span>
+        <span id="packetStatus">Not Connected</span>
+      </div>
+      
+      <div id="gamepadText" style="color:red">Press <i>X</i> (or <i>A</i>) on the gamepad you want to use<br/>
+        <small>(Such as an Xbox 360 controller)</small></div>
+      <hr/>
+      <div id="indicators" class="hidden">
+        <h4>Indicators:</h4>
+        <div class="row">
+          <div class="col-xs-3">Pitch: <span id="pitch"></span></div>
+          <div class="col-xs-3">Roll: <span id="roll"></span></div>
+          <div class="col-xs-3">Yaw: <span id="yaw"></span></div>
+          <div class="col-xs-3">Thrust: <span id="thrust"></span></div>
+        </div>
+      </div>
+      
+      <hr class="hidden" />
+
+      <div id="sensitivity" class="hidden">
+        <h4>Sensitivity:</h4>
+        <div class="row">
+          <div class="col-xs-2"><label for="pitchFactor">Pitch:</label></div>
+          <div class="col-xs-8"><input type="range" min="0" max="30" step="1" value="30" id="pitchFactor" class="form-control" /></div>
+          <div class="col-xs-2" id="pitchFactorVal"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2"><label for="rollFactor">Roll:</label></div>
+          <div class="col-xs-8"><input type="range" min="0" max="30" step="1" value="30" id="rollFactor" class="form-control" /></div>
+          <div class="col-xs-2" id="rollFactorVal"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2"><label for="yawFactor">Yaw:</label></div>
+          <div class="col-xs-8"><input type="range" min="0" max="200" step="1" value="200" id="yawFactor" class="form-control" /></div>
+          <div class="col-xs-2" id="yawFactorVal"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-2"><label for="thrustFactor">Thrust:</label></div>
+            <div class="col-xs-8"><input type="range" min="0" max="55000" step="50" value="55000" id="thrustFactor" class="form-control" /></div>
+          <div class="col-xs-2" id="thrustFactorVal"></div>
+        </div>
+      </div>
+      <div>
+
+      <hr class="hidden" />
+      <div class="hidden">
+        <h4>Percent to Zero:</h4>
+        <div class="row">
+          <div class="form-inline col-xs-4">
+            <label for="pitchFactorZ">Pitch:</label>
+            <input type="number" min="0" max="100" step="1" value="5" id="pitchFactorZ" class="form-control" />
+          </div>
+          <div class="form-inline col-xs-4">
+            <label for="rollFactorZ">Roll:</label>
+            <input type="number" min="0" max="100" step="1" value="5" id="rollFactorZ" class="form-control" />
+          </div>
+          <div class="form-inline col-xs-4">
+            <label for="yawFactorZ">Yaw:</label>
+            <input type="number" min="0" max="100" step="1" value="5" id="yawFactorZ" class="form-control" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section id="instructions" class="hidden">
+      iiuiuiuuin
+    </section>
+    <section id="tips" class="hidden">
+      kmomo[moo]
+    </section>
+    <section id="data" class="hidden">
+      <label for="dataCheck"><input type="checkbox" id="dataCheck" /> Record Data</label>
+      <textarea id="dataRecord" style="height:750px; width:100%; overflow:scroll;"></textarea>
+    </section>
+  </div>
+  <script src="bower_components/underscore/underscore.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="crazyradio.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

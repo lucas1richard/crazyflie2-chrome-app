@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "crazyflieChromeClient",
+  "short_name": "Crazyflie Client",
+  "description": "Client for the Bitcraze Crazyflie quadcopter",
+  "version": "0.0.1",
+  "minimum_chrome_version": "39",
+
+
+  "app": {
+    "background": {
+      "scripts": ["background.js"]
+    }
+  },
+  "permissions": [
+    "storage",
+    "usb",
+    {
+      "usbDevices": [
+        {
+          "vendorId": 1915,
+          "productId": 7777
+        },
+        {
+          "vendorId": 6421,
+          "productId": 30583
+        }
+      ]
+    }
+  ]
+}
+
+//venderid 6421
+//productid 30583
+
+// Failed to attach the USB device ©Microsoft Corporation Controller [0110] to the virtual machine Bitcraze VM 0.8.
+
+// USB device '©Microsoft Corporation Controller' with UUID {df04f053-c7f8-4c3a-8c71-d8d527779af6} is busy with a previous request. Please try again later.
+
+// Result Code: E_INVALIDARG (0x80070057)
+// Component: HostUSBDeviceWrap
+// Interface: IHostUSBDevice {c19073dd-cc7b-431b-98b2-951fda8eab89}
+// Callee: IConsole {872da645-4a9b-1727-bee2-5585105b9eed}
+
